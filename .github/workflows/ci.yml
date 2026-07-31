@@ -10,7 +10,7 @@ permissions:
 
 jobs:
   test:
-    name: Test (${{ matrix.os }}/${{{ matrix.go }}})
+    name: Test (${{ matrix.os }}/${{ matrix.go }})
     runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
