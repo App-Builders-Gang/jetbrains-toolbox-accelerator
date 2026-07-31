@@ -1,0 +1,20 @@
+# Build artifacts
+/.tmp/
+/dist/
+*.exe
+*.test
+*.out
+
+# Local config / secrets
+*.p12
+*.key
+*.crt
+config.json
+jtaccel.log
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp

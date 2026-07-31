@@ -1,0 +1,80 @@
+name: Release
+
+on:
+  push:
+    tags: ['v*']
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Release tag (e.g. v0.1.0)'
+        required: true
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version: '1.26'
+          cache: true
+
+      - name: Determine version
+        id: ver
+        run: |
+          if [ -n "${{ inputs.tag }}" ]; then
+            echo "version=${{ inputs.tag }}" >> "$GITHUB_OUTPUT"
+            echo "tag=${{ inputs.tag }}" >> "$GITHUB_OUTPUT"
+          else
+            echo "version=${GITHUB_REF_NAME}" >> "$GITHUB_OUTPUT"
+            echo "tag=${GITHUB_REF_NAME}" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Run tests
+        run: go test ./... -count=1 -timeout 120s
+
+      - name: Build all targets
+        run: |
+          VERSION="${{ steps.ver.outputs.version }}"
+          LDFLAGS="-s -w -X main.version=${VERSION}"
+          mkdir -p dist
+          # Strip the leading 'v' for the embedded version string.
+          VER_NO_V="${VERSION#v}"
+          targets=(
+            "windows/amd64" "windows/arm64"
+            "linux/amd64"   "linux/arm64"
+            "darwin/amd64"  "darwin/arm64"
+          )
+          for t in "${targets[@]}"; do
+            os="${t%%/*}"; arch="${t#*/}"
+            out="dist/jtaccel-${os}-${arch}"
+            [ "$os" = "windows" ] && out="${out}.exe"
+            GOOS="$os" GOARCH="$arch" CGO_ENABLED=0 \
+              go build -trimpath -ldflags "$LDFLAGS" -o "$out" ./cmd/jtaccel
+            echo "built $out"
+          done
+
+      - name: Generate checksums
+        working-directory: dist
+        run: |
+          sha256sum jtaccel-* | sed 's/  /  /' > SHA256SUMS
+          cat SHA256SUMS
+
+      - name: Copy install scripts
+        run: |
+          cp scripts/install.sh dist/
+          cp scripts/install.ps1 dist/
+
+      - name: Create release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.ver.outputs.tag }}
+          generate_release_notes: true
+          files: |
+            dist/jtaccel-*
+            dist/SHA256SUMS
+            dist/install.sh
+            dist/install.ps1

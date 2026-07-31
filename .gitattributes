@@ -1,0 +1,10 @@
+# Normalize all text files to LF in the repository. CRITICAL: shell scripts and
+# GitHub Actions YAML must not have CRLF endings, or they fail on Unix runners.
+* text=auto eol=lf
+
+# Binaries
+*.png binary
+*.jpg binary
+*.ico binary
+*.zip binary
+*.gz  binary
