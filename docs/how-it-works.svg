@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" font-family="'Segoe UI',system-ui,-apple-system,sans-serif" role="img" aria-label="How jtaccel works: Toolbox connects to the local proxy, which fetches the file as parallel ranged requests and reassembles them in order">
+  <defs>
+    <linearGradient id="bg2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#101015"/>
+      <stop offset="1" stop-color="#0a0a0c"/>
+    </linearGradient>
+    <linearGradient id="bar2" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#1c5cab"/>
+      <stop offset="1" stop-color="#3987e5"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="360" rx="20" fill="url(#bg2)"/>
+  <rect x="1" y="1" width="1198" height="358" rx="19" fill="none" stroke="#ffffff" stroke-opacity="0.06"/>
+
+  <!-- Node: Toolbox -->
+  <g transform="translate(56,120)">
+    <rect width="200" height="120" rx="14" fill="#18181c" stroke="#ffffff" stroke-opacity="0.10"/>
+    <text x="100" y="48" text-anchor="middle" font-size="20" font-weight="700" fill="#ffffff">Toolbox</text>
+    <text x="100" y="74" text-anchor="middle" font-size="13" fill="#898781">1 connection</text>
+    <text x="100" y="94" text-anchor="middle" font-size="13" fill="#898781">~1.5 MB/s</text>
+  </g>
+
+  <!-- Node: jtaccel -->
+  <g transform="translate(500,120)">
+    <rect width="200" height="120" rx="14" fill="#11192a" stroke="#3987e5" stroke-opacity="0.55"/>
+    <text x="100" y="44" text-anchor="middle" font-size="20" font-weight="700" fill="#ffffff">jtaccel</text>
+    <text x="100" y="68" text-anchor="middle" font-size="13" fill="#6da7ec">local proxy</text>
+    <text x="100" y="88" text-anchor="middle" font-size="13" fill="#898781">127.0.0.1:8899</text>
+    <text x="100" y="106" text-anchor="middle" font-size="12" fill="#898781">splits + reassembles</text>
+  </g>
+
+  <!-- Node: CDN -->
+  <g transform="translate(944,120)">
+    <rect width="200" height="120" rx="14" fill="#18181c" stroke="#ffffff" stroke-opacity="0.10"/>
+    <text x="100" y="48" text-anchor="middle" font-size="20" font-weight="700" fill="#ffffff">CDN</text>
+    <text x="100" y="74" text-anchor="middle" font-size="13" fill="#898781">JetBrains · Google</text>
+    <text x="100" y="94" text-anchor="middle" font-size="13" fill="#898781">any download host</text>
+  </g>
+
+  <!-- single connection Toolbox -> jtaccel -->
+  <path d="M256 180 H500" stroke="#898781" stroke-width="3" stroke-linecap="round"/>
+  <path d="M488 172 l16 8 l-16 8" fill="none" stroke="#898781" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="378" y="166" text-anchor="middle" font-size="13" fill="#898781">one request</text>
+
+  <!-- parallel streams jtaccel -> CDN -->
+  <g stroke="url(#bar2)" stroke-width="3" stroke-linecap="round" fill="none">
+    <path d="M700 156 C 800 156, 840 150, 944 150"/>
+    <path d="M700 168 C 800 168, 840 168, 944 168"/>
+    <path d="M700 180 C 800 180, 840 186, 944 186"/>
+    <path d="M700 192 C 800 192, 840 206, 944 206"/>
+  </g>
+  <g fill="none" stroke="#6da7ec" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M932 142 l14 8 l-14 8"/>
+    <path d="M932 198 l14 8 l-14 8"/>
+  </g>
+  <text x="822" y="128" text-anchor="middle" font-size="13" fill="#6da7ec" font-weight="600">16 parallel ranged GETs</text>
+
+  <!-- caption -->
+  <text x="600" y="306" text-anchor="middle" font-size="15" fill="#c3c2b7">Reassembled in order → Toolbox sees one normal download, checksum passes unchanged</text>
+</svg>

@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" font-family="'Segoe UI',system-ui,sans-serif" role="img" aria-label="jtaccel icon: an accelerated JetBrains Toolbox-style cube">
+  <defs>
+    <!-- Toolbox-signature warm gradient -->
+    <linearGradient id="topF" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#E91E63"/>
+      <stop offset="1" stop-color="#9C27B0"/>
+    </linearGradient>
+    <linearGradient id="rightF" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FF6A00"/>
+      <stop offset="1" stop-color="#E91E63"/>
+    </linearGradient>
+    <linearGradient id="leftF" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#9C27B0"/>
+      <stop offset="1" stop-color="#4A148C"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Isometric cube: three rhombi tiling a hexagon, meeting at C(256,270) -->
+  <g stroke="#7a1f5c" stroke-width="2" stroke-linejoin="round">
+    <!-- top face: V5(100,180) V0(256,90) V1(412,180) C(256,270) -->
+    <polygon points="100,180 256,90 412,180 256,270" fill="url(#topF)"/>
+    <!-- right (bright) face: V1(412,180) V2(412,360) V3(256,450) C(256,270) -->
+    <polygon points="412,180 412,360 256,450 256,270" fill="url(#rightF)"/>
+    <!-- left face: V3(256,450) V4(100,360) V5(100,180) C(256,270) -->
+    <polygon points="256,450 100,360 100,180 256,270" fill="url(#leftF)"/>
+  </g>
+
+  <!-- accelerator motif: three parallel streams converging into a forward arrow,
+       drawn on the bright right face (replacing Toolbox's plain white bar) -->
+  <g>
+    <rect x="288" y="300" width="70" height="9" rx="4.5" fill="#ffffff" opacity="0.95"/>
+    <rect x="288" y="316" width="70" height="9" rx="4.5" fill="#ffffff" opacity="0.80"/>
+    <rect x="288" y="332" width="70" height="9" rx="4.5" fill="#ffffff" opacity="0.62"/>
+    <path d="M356 300 l16 20.5 l-16 20.5" fill="none" stroke="#ffffff" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg>
