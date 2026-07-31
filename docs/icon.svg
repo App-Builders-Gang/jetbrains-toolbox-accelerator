@@ -1,36 +1,48 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" font-family="'Segoe UI',system-ui,sans-serif" role="img" aria-label="jtaccel icon: an accelerated JetBrains Toolbox-style cube">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" role="img" aria-label="jtaccel logo: an isometric JetBrains Toolbox-style cube whose face carries three parallel download streams and a forward chevron">
+  <title>jtaccel</title>
+  <!--
+    jtaccel mark — a derivative of the JetBrains Toolbox cube. Face geometry and the
+    three gradients were measured from the installed Toolbox app icon, so the cube is
+    the real one; Toolbox's single white bar is replaced by three tapering parallel
+    streams and an acceleration chevron.
+    JetBrains and the Toolbox logo are trademarks of JetBrains s.r.o.
+  -->
   <defs>
-    <!-- Toolbox-signature warm gradient -->
-    <linearGradient id="topF" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#E91E63"/>
-      <stop offset="1" stop-color="#9C27B0"/>
+    <linearGradient id="jtTop" gradientUnits="userSpaceOnUse" x1="-8.82" y1="4.57" x2="155.25" y2="-80.33">
+      <stop offset="0" stop-color="#FF4055"/>
+      <stop offset=".2" stop-color="#FC2771"/>
+      <stop offset=".4" stop-color="#EA2291"/>
+      <stop offset=".6" stop-color="#D620B3"/>
+      <stop offset=".8" stop-color="#C31FD2"/>
+      <stop offset="1" stop-color="#B51EEB"/>
     </linearGradient>
-    <linearGradient id="rightF" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#FF6A00"/>
-      <stop offset="1" stop-color="#E91E63"/>
+    <linearGradient id="jtLeft" gradientUnits="userSpaceOnUse" x1="48.73" y1="-25.21" x2="-57.80" y2="29.91">
+      <stop offset="0" stop-color="#F6237E"/>
+      <stop offset=".2" stop-color="#FD276E"/>
+      <stop offset=".4" stop-color="#FF4056"/>
+      <stop offset=".6" stop-color="#FF5B3E"/>
+      <stop offset=".8" stop-color="#FF7626"/>
+      <stop offset="1" stop-color="#FF8618"/>
     </linearGradient>
-    <linearGradient id="leftF" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#9C27B0"/>
-      <stop offset="1" stop-color="#4A148C"/>
+    <linearGradient id="jtRight" gradientUnits="userSpaceOnUse" x1="197.62" y1="219.02" x2="121.11" y2="134.22">
+      <stop offset="0" stop-color="#060008"/>
+      <stop offset=".2" stop-color="#0A000B"/>
+      <stop offset=".4" stop-color="#130116"/>
+      <stop offset=".6" stop-color="#220126"/>
+      <stop offset=".8" stop-color="#38023E"/>
+      <stop offset="1" stop-color="#4A0251"/>
     </linearGradient>
   </defs>
 
-  <!-- Isometric cube: three rhombi tiling a hexagon, meeting at C(256,270) -->
-  <g stroke="#7a1f5c" stroke-width="2" stroke-linejoin="round">
-    <!-- top face: V5(100,180) V0(256,90) V1(412,180) C(256,270) -->
-    <polygon points="100,180 256,90 412,180 256,270" fill="url(#topF)"/>
-    <!-- right (bright) face: V1(412,180) V2(412,360) V3(256,450) C(256,270) -->
-    <polygon points="412,180 412,360 256,450 256,270" fill="url(#rightF)"/>
-    <!-- left face: V3(256,450) V4(100,360) V5(100,180) C(256,270) -->
-    <polygon points="256,450 100,360 100,180 256,270" fill="url(#leftF)"/>
-  </g>
+  <polygon points="128,8 232,68 128,128 24,68" fill="url(#jtTop)"/>
+  <polygon points="24,68 128,128 128,248 24,188" fill="url(#jtLeft)"/>
+  <polygon points="128,128 232,68 232,188 128,248" fill="url(#jtRight)"/>
 
-  <!-- accelerator motif: three parallel streams converging into a forward arrow,
-       drawn on the bright right face (replacing Toolbox's plain white bar) -->
-  <g>
-    <rect x="288" y="300" width="70" height="9" rx="4.5" fill="#ffffff" opacity="0.95"/>
-    <rect x="288" y="316" width="70" height="9" rx="4.5" fill="#ffffff" opacity="0.80"/>
-    <rect x="288" y="332" width="70" height="9" rx="4.5" fill="#ffffff" opacity="0.62"/>
-    <path d="M356 300 l16 20.5 l-16 20.5" fill="none" stroke="#ffffff" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+  <g fill="#FFFFFF">
+    <polygon points="144.1,149.3 190.4,122.6 190.4,133.2 144.1,159.9"/>
+    <polygon points="144.1,169.7 182.1,147.8 182.1,158.4 144.1,180.3"/>
+    <polygon points="144.1,190.1 173.8,173.0 173.8,183.6 144.1,200.7"/>
   </g>
+  <path d="M198.2 119.8 L216.9 133.0 L198.2 167.8" fill="none" stroke="#FFFFFF"
+        stroke-width="11.5" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>

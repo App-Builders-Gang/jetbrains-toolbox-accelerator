@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" role="img" aria-label="JetBrains Toolbox logo">
+  <title>JetBrains Toolbox</title>
+  <!--
+    Vector redraw of the JetBrains Toolbox application mark, measured from the icon
+    shipped with Toolbox (bin/toolbox.ico) so the diagrams in this README show the real
+    product rather than a stand-in. Used nominatively to identify JetBrains Toolbox.
+    JetBrains and the Toolbox logo are trademarks of JetBrains s.r.o.; this project is
+    independent and not affiliated with or endorsed by JetBrains.
+  -->
+  <defs>
+    <linearGradient id="tbTop" gradientUnits="userSpaceOnUse" x1="-8.82" y1="4.57" x2="155.25" y2="-80.33">
+      <stop offset="0" stop-color="#FF4055"/>
+      <stop offset=".2" stop-color="#FC2771"/>
+      <stop offset=".4" stop-color="#EA2291"/>
+      <stop offset=".6" stop-color="#D620B3"/>
+      <stop offset=".8" stop-color="#C31FD2"/>
+      <stop offset="1" stop-color="#B51EEB"/>
+    </linearGradient>
+    <linearGradient id="tbLeft" gradientUnits="userSpaceOnUse" x1="48.73" y1="-25.21" x2="-57.80" y2="29.91">
+      <stop offset="0" stop-color="#F6237E"/>
+      <stop offset=".2" stop-color="#FD276E"/>
+      <stop offset=".4" stop-color="#FF4056"/>
+      <stop offset=".6" stop-color="#FF5B3E"/>
+      <stop offset=".8" stop-color="#FF7626"/>
+      <stop offset="1" stop-color="#FF8618"/>
+    </linearGradient>
+    <linearGradient id="tbRight" gradientUnits="userSpaceOnUse" x1="197.62" y1="219.02" x2="121.11" y2="134.22">
+      <stop offset="0" stop-color="#060008"/>
+      <stop offset=".2" stop-color="#0A000B"/>
+      <stop offset=".4" stop-color="#130116"/>
+      <stop offset=".6" stop-color="#220126"/>
+      <stop offset=".8" stop-color="#38023E"/>
+      <stop offset="1" stop-color="#4A0251"/>
+    </linearGradient>
+  </defs>
+
+  <polygon points="128,8 232,68 128,128 24,68" fill="url(#tbTop)"/>
+  <polygon points="24,68 128,128 128,248 24,188" fill="url(#tbLeft)"/>
+  <polygon points="128,128 232,68 232,188 128,248" fill="url(#tbRight)"/>
+  <polygon points="149,199 192,174 192,186 149,211" fill="#FFFFFF"/>
+</svg>
